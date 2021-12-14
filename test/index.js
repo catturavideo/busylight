@@ -5,15 +5,15 @@ var busylight = require('../lib')
 
 var bl = busylight.get();
 
+// bl.debug = true;
+
+if(!bl) return console.log('no busylight found');
+
 bl.on('disconnected', function(err) {
   console.log(err);
 });
 
 bl.on('connected', function(){
-
-  if(!bl)
-    return console.log('no busylight found');
-
   bl.defaults({
     volume: 1,
     color: 'yellow'
